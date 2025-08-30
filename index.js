@@ -64,7 +64,8 @@ async function getNews() {
             console.log(feed.title);
         }
 
-        feed.items.forEach(item => {
+        try {
+            feed.items.forEach(item => {
             let content = `${item.description || item.content || item.summary || "<b>No content or description available</b>"}`
 
             content = content.replace(/https?:\/\/[^\s]+/g, "")
@@ -95,6 +96,9 @@ async function getNews() {
             <br></br>
             `
         });
+        } catch {
+            html = html + "" // HACK
+        }
     }));
     html = html + `
     <hr></hr>
