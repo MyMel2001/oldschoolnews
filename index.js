@@ -52,7 +52,11 @@ async function getNews() {
 
     // Process all feeds concurrently and wait for all to complete
     await Promise.all(feeds.map(async (nonparsed) => {
-        let feed = await parser.parseURL(nonparsed);
+        try {
+            let feed = await parser.parseURL(nonparsed);
+        } catch {
+            break;
+        }
         html = html + `
         <h2>SOURCE: ${feed.title}</h2><br></br>
         `;
