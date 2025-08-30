@@ -55,7 +55,7 @@ async function getNews() {
         try {
             let feed = await parser.parseURL(nonparsed);
         } catch {
-            break;
+            let feed = "" //HACK
         }
         html = html + `
         <h2>SOURCE: ${feed.title}</h2><br></br>
