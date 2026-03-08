@@ -36,6 +36,7 @@ async function getNews() {
         feeds = process.env.FEEDS.split(',')
     } catch {
         feeds = [
+            'https://sparksammy.com/rss',
             'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
             'https://www.theguardian.com/world/rss',
             'https://feeds.nbcnews.com/nbcnews/public/news',
